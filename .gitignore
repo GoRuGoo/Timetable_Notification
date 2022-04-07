@@ -1,2 +1,5 @@
 /environ.py
 /datetimetest.py
+/environtest.py
+/environenv.env
+__pycache__/
