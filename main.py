@@ -1,12 +1,10 @@
-from multiprocessing.spawn import import_main_path
 import os
 from datetime import datetime
-import environ
 import requests
 
 def send_message(message):
     url = "https://notify-api.line.me/api/notify"
-    token = environ.TIMETABLE_TOKEN
+    token = os.environ['TIMETABLE_NOTIFICATION_SECOND_GRADE']
     headers = {"Authorization" : "Bearer "+ token}
     payload = {"message" :  message}
 
@@ -32,8 +30,8 @@ def judge_subject():
         send_message = "金曜\n1限:回路理論 エッセンシャル電気回路 プリント\n2,3限:工学実験 工学実験Ⅰ指導書 基本からわかる電気回路"
         return send_message
     else:
-        pass
-
+        send_message = "休暇をお楽しみください"
+        return send_message
 
 
 if __name__ == '__main__':
